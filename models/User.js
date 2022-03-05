@@ -36,9 +36,12 @@ User.init(
                 len: [4]
             }
         },
-        isAdmin: true
-    },
-    {
+        isAdmin: {
+            type: DataTypes.BOOLEAN,
+            validate: {
+                isAdmin: true
+            }
+        },
         hooks: {
             async beforeCreate(newUserData) {
                 newUserData.password = await bcrypt.hash(newUserData.password, 10)
