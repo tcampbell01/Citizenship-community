@@ -77,9 +77,12 @@
                     <div class="row h-40 border border-primary">
                         <div class="col border border-primary">
                             <h3> Representative </h3>
-                            <p>
-                                api search bar
-                            </p>
+                            <div class="input-group mb-3 user-input">
+                                <input type="text" class="form-control address-input" placeholder="Enter Your Zip Code" aria-label="Enter Your Zip Code" aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary submit-btn" type="button" id="button-addon2" ">Submit</button>
+                            </div>
+                            <div class ="flex-column" id="civic-rep">
+                            </div>
                         </div>
                         
                     </div>
@@ -103,8 +106,8 @@
 
 
 
-
-
+    <script src="./public/javascript/civicinfo.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>   
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
