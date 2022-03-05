@@ -1,3 +1,7 @@
+.disableClick {
+    pointer-events: none;
+}
+
 /* socket.io styles */
 
 .chat-body { 
