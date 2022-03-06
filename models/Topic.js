@@ -11,11 +11,18 @@ Topic.init(
         primaryKey: true,
         autoIncrement: true
       },
-      title: {
+      topic_title: {
         type: DataTypes.STRING,
         allowNull: false
-      
       }
+      // post_id: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      //   references: {
+      //     model: 'post',
+      //     key: 'id'
+      //   }
+      // }
     },
     {
       sequelize,

@@ -2,25 +2,25 @@ const { Topic } = require('../models');
 
 const topicData = [
   {
-    title: "Citizenship Test", 
+    topic_title: "Citizenship Test"
     
   },
   {
-    title: "N-400", 
+    topic_title: "N-400"
     
   },
   {
-    title: "The interview", 
+    topic_title: "The interview"
     
   },
   {
-    title: "Traveling after sending in your N-400", 
+    topic_title: "Traveling after sending in your N-400"
    
   },
   {
-    title: "What is 'Good Moral Character'", 
+    topic_title: "What is 'Good Moral Character'"
    
-  },
+  }
 ];
 
 const seedTopics = () => Topic.bulkCreate(topicData);

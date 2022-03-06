@@ -8,11 +8,11 @@ const forumRoutes = require('./forum-page-routes.js');
 
 const dashboardRoutes =require('./dashboard-routes')
 
-router.use('/homepage', homeRoutes);
+router.use('/', homeRoutes);
 
 router.use('/api', apiRoutes);
 
-router.use('/', forumRoutes);
+router.use('/forum', forumRoutes);
 
 router.use('/dashboard', dashboardRoutes);
 
