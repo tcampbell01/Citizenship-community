@@ -38,7 +38,7 @@ Topic.hasMany(Post, {
 });
 
 Post.belongsTo(Topic, {
-    foreignKey: 'topic_id'
+    foreignKey: 'post_id'
 });
 
 module.exports = { User, Post, Comment, Topic };
