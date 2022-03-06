@@ -21,6 +21,7 @@ Post.init(
       },
       user_id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         references: {
           model: 'user',
           key: 'id'
@@ -28,6 +29,7 @@ Post.init(
       },
       topic_id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         references: {
           model: 'topic',
           key: 'id'
