@@ -2,6 +2,7 @@ const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
 const Topic = require('./Topic');
+const TopicPost = require('./TopicPost');
 
 // create associations
 User.hasMany(Post, {
@@ -33,13 +34,15 @@ Post.hasMany(Comment, {
     onDelete: "CASCADE"
 });
 
-Topic.hasMany(Post, {
-    foreignKey: 'post_id'
+Topic.belongsToMany(Post, {
+    through: TopicPost,
+    foreignKey: 'topic_id'
 });
 
 Post.belongsTo(Topic, {
+    through: TopicPost,
     foreignKey: 'post_id'
 });
 
-module.exports = { User, Post, Comment, Topic };
+module.exports = { User, Post, Comment, Topic, TopicPost };
 

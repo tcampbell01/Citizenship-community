@@ -26,15 +26,15 @@ Post.init(
           model: 'user',
           key: 'id'
         }
-      },
-      topic_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'topic',
-          key: 'id'
-        }
       }
+      // topic_id: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      //   references: {
+      //     model: 'topic',
+      //     key: 'id'
+      //   }
+      // }
     },
     {
       sequelize,

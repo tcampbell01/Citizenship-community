@@ -37,7 +37,7 @@ router.get("/", (req, res) => {
       },
       {
         model: Topic,
-        attributes: ["id", "title"],
+        attributes: ["id", "topic_title"],
       },
     ],
   })
@@ -69,7 +69,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
       },
       {
         model: Topic,
-        attributes: ["id", "title"],
+        attributes: ["id", "topic_title"],
       },
     ],
   })
