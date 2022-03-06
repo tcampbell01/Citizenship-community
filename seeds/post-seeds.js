@@ -18,12 +18,12 @@ const postData = [
   },
   {
     title: "Profiles on Naturalized Citizens", 
-    post_content: "Naturalized citizens are foreign nationals who have become citizens of the United States after fulfilling requirements established by Congress in the Immigration and Nationality Act. raphic characteristics of immigrants who naturalized during the fiscal year. More at: https://www.dhs.gov/profiles-naturalized-citizens", 
+    post_content: "See characteristics of immigrants who naturalized during the fiscal year. More at: https://www.dhs.gov/profiles-naturalized-citizens", 
     user_id: "4"
   },
   {
     title: "How U.S. Visa Delays Are Taking a Costly Toll on Frustrated Workers", 
-    post_content: "Delayed work permits mean some immigrants risk losing their jobs, even as the U.S. experiences labor shortages. More at: https://www.bloomberg.com/news/features/2022-03-04/how-uscis-visa-processing-time-delays-are-hurting-immigrant-workers-and-jobs", 
+    post_content: "What does delayed work permits mean? More at: https://www.bloomberg.com/news/features/2022-03-04/how-uscis-visa-processing-time-delays-are-hurting-immigrant-workers-and-jobs", 
     user_id: "5"
   },
 ];

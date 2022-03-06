@@ -1,16 +1,16 @@
 const router = require('express').Router();
 
-// const apiRoutes = require('./api');
-
-// router.use('/api', apiRoutes);
-
-const landingRoutes = require('./landing-page-routes.js');
-
-router.use('/', landingRoutes);
+const apiRoutes = require('./api');
 
 const homeRoutes = require('./homepage-routes.js');
 
+const forumRoutes = require('./forum-page-routes.js');
+
 router.use('/homepage', homeRoutes);
+
+router.use('/api', apiRoutes);
+
+router.use('/', forumRoutes);
 
 router.use((req, res) => {
   res.status(404).end();
