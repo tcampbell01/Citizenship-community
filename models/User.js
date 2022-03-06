@@ -36,6 +36,7 @@ User.init({
   },
   isAdmin: {
     type: DataTypes.BOOLEAN,
+    defaultValue: "false",
     validate: {
       isAdmin: true,
     },
