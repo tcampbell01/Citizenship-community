@@ -25,6 +25,13 @@ Post.init(
           model: 'user',
           key: 'id'
         }
+      },
+      topic_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'topic',
+          key: 'id'
+        }
       }
     },
     {

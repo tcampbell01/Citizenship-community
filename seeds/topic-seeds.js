@@ -23,6 +23,6 @@ const topicData = [
   },
 ];
 
-const seedTopics = () => Post.bulkCreate(topicData);
+const seedTopics = () => Topic.bulkCreate(topicData);
 
 module.exports = seedTopics;
