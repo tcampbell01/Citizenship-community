@@ -42,6 +42,10 @@ router.get('/', withAuth, (req, res) => {
 });
 
 router.get("/edit/:id", withAuth, (req, res) => {
+  // in my projects this is an example where this is Post.findByPk(req.params.id, 
+  // not sure if this also works but just pointing out a potential change
+  // (without the "where" part)
+  // it might have just been one of those refactoring steps somewhere along
     Post.findOne({
       where: {
         id: req.params.id,

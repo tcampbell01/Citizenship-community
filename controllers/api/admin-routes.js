@@ -1,3 +1,10 @@
+// suggestion : i don't think we need this file at all. it seems redundant and admins
+// are logging in the same way as other users, the only difference is some accounts
+// have attributes isAdmin and we will pass that info into the logged in Session
+// to determine if some routes can be accessed by all users or just admins (for example,
+// anyone can login but only admins can delete users)
+
+
 
 const router = require("express").Router();
 const { User, Post, Comment } = require("../../models");
