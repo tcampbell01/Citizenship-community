@@ -8,9 +8,11 @@ router.get('/login', (req, res) => {
       res.redirect('/');
       return;
   }
-  res.render('login');
+  res.render('forum');
 });
 
+
+//need to test this with our page-- may need res.render('forum')
 router.get("/signup", (req, res) => {
   res.render("signup");
 });
