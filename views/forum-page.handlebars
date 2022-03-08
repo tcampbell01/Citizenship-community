@@ -1,0 +1,65 @@
+<section>
+  <!-- height, hght-100 classes - we might want to also include this /try it out in the signup page --> 
+  <div class="container-fluid height">
+    <div class="row hght-100">
+      <div class="col-2 border border-primary">
+        <h2>Topics</h2>
+          <ul>
+            <li> topic 1 </li>
+            <li> topic 2 </li>
+            <li> topic 1 </li>
+            <li> topic 1 </li>
+            <li> topic 1 </li>
+          </ul>
+      </div>
+      <div class="col-6 border border-primary">
+        <h2>Forum</h2>
+      </div>
+      <!-- right-side, sixty-pct, chat-body, forty-pct -->
+      <div class="col-4 border border-primary right-side">
+        <div class="row border border-primary sixty-pct">
+          <h3>Chat</h3>
+          <div class="col border border-primary chat-body">
+            <ul id="messages">
+            </ul>    
+            <form id="form" action="">      
+              <input id="input" autocomplete="off" />
+              <button>Send</button>    
+            </form>
+          </div>      
+        </div>
+        <div class="row border border-primary forty-pct">
+          <div class="col border border-primary">
+            <h3>Representative</h3>
+            <div class="input-group mb-3 user-input">
+              <input type="text" class="form-control address-input" placeholder="Enter Your Zip Code" aria-label="Enter Your Zip Code" aria-describedby="button-addon2">
+              <button class="btn btn-outline-secondary submit-btn" type="button">Submit</button>
+            </div>
+            <div class ="flex-column civic-rep"></div>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="/socket.io/socket.io.js"></script>
+<script> var socket = io();
+
+  var messages = document.getElementById('messages');
+  var form = document.getElementById('form');  
+  var input = document.getElementById('input');
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (input.value) { socket.emit('chat message', input.value); 
+      input.value = '';
+    }
+  });
+  socket.on('chat message', function(msg) {
+    var item = document.createElement('li');
+    item.textContent = msg;
+    messages.appendChild(item);
+    window.scrollTo(0, document.body.scrollHeight);
+  });
+</script>
+<script src="/javascript/civicinfo.js"></script>

@@ -3,6 +3,22 @@ const sequelize = require("../config/connection");
 const { Post, User, Comment, Topic } = require("../models");
 const withAuth = require("../utils/auth");
 
+router.get("/", (req, res) => {
+  // Topic.findAll({
+  //   include: [
+  //     {
+  //       model: Post,
+  //       attributes: ["id", "title", "post_content", "user_id"],
+  //     },
+  //   ],
+  // })
+  //   .then((dbTopicData) => res.json(dbTopicData))
+  //   .catch((err) => {
+  //     console.log(err);
+  //     res.status(500).json(err);
+  //   });
+  res.render('forum-page');
+});
 
 
 router.get('/', withAuth, (req, res) => {
