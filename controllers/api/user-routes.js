@@ -56,12 +56,12 @@ router.get("/:id", (req, res) => {
 router.post("/login", (req, res) => {
   User.findOne({
     where: {
-      username: req.body.username,
+      email: req.body.email,
     },
   })
     .then((dbUserData) => {
       if (!dbUserData) {
-        res.status(400).json({ message: "No user with that username!" });
+        res.status(400).json({ message: "No user with that email address, request login or try again!" });
         return;
       }
 
@@ -75,7 +75,7 @@ router.post("/login", (req, res) => {
       req.session.save(() => {
       
         req.session.user_id = dbUserData.id;
-        req.session.username = dbUserData.username;
+        req.session.email = dbUserData.email;
         req.sessions.password = dbUserData.password;
         req.session.loggedIn = true;
 
@@ -121,13 +121,19 @@ router.put("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
     User.create({
-      username: req.body.username,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      email: req.body.email,
       password: req.body.password,
+      zipCode: req.body.zipCode,
     })
       .then((dbUserData) => {
         req.session.save(() => {
           req.session.user_id = dbUserData.id;
-          req.session.username = dbUserData.username;
+          req.session.first_name = dbUserData.first_name;
+          req.session.last_name = dbUserData.last_name;
+          req.session.zipCode = dbUserData.zipCode;
+          req.session.password = dbUserData.password;
           req.session.loggedIn = true;
   
           res.json(dbUserData);

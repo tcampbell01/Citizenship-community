@@ -17,16 +17,41 @@ function civicInfo() {
     console.log(data)
     console.log(data.officials[0].name)
     console.log(data.officials[0].party)
+    console.log(data.offices[2].name)
+    console.log(data.offices[3].name)
+    console.log(data.offices[4].name)
 
     const repNameEl = document.createElement("h6");
     repNameEl.textContent = "Your " + data.normalizedInput.state + " Representatives are: " + data.officials[2].name + " * " + data.officials[3].name + " * " + data.officials[4].name + " * " + data.officials[5].name + " * " + data.officials[6].name + " * " + data.officials[7].name + " * " + data.officials[8].name + " * " + data.officials[9].name + " * " + data.officials[10].name;
     // repNameEl.classList.add("is-size-5", "has-text-weight-bold");
-    civicContainer.appendChild(repNameEl);
+    // civicContainer.appendChild(repNameEl);
 
     const repPartyEl = document.createElement("h6");
     repPartyEl.textContent =  data.officials[0].party;
     // repPartyEl.classList.add("is-size-5", "has-text-weight-bold");
     civicContainer.appendChild(repPartyEl);
+
+
+    // Joseph we changed the code to show the legislators taht the users need to know for interview
+    // they also need to know the Mayor, but that's wasnt available, so we'll ignore for now
+    
+    // below is the data for offices, if you still need it
+
+    // const repOfficeEl = document.createElement("h6");
+    // repOfficeEl.textContent =  data.offices[0].name;
+    
+    // this is data for what is now showing on the page
+    const senatorEl = document.createElement("h6");
+    senatorEl.textContent = "Your Senators are " + data.officials[2].name + " and " + data.officials[3].name; 
+    const usRepEl = document.createElement("h6");
+    usRepEl.textContent = "Your US Representative is " + data.officials[4].name 
+    const govRepEl = document.createElement("h6");
+    govRepEl. textContent = "Your Governor is " + data.officials[5].name; 
+    
+    // repPartyEl.classList.add("is-size-5", "has-text-weight-bold");
+    civicContainer.appendChild(senatorEl);
+    civicContainer.appendChild(usRepEl);
+    civicContainer.appendChild(govRepEl);
   });
 }
 
