@@ -27,8 +27,11 @@ router.get('/', (req, res) => {
       },
       {
         model: Topic,
-        attributes: ['id', 'topic_title']
-      },
+        attributes: ['id', 'topic_title'],
+       
+        }
+
+      
     ]
   })
     .then(dbPostData => res.json(dbPostData))
@@ -65,7 +68,7 @@ router.get('/:id', (req, res) => {
       },
       {
         model: Topic,
-        attributes: ['first_name', 'last_name']
+        attributes: ['id', 'topic_title']
       }
     ]
   })
@@ -86,7 +89,7 @@ router.post('/', withAuth, (req, res) => {
   
   Post.create({
     title: req.body.title,
-    content: req.body.content,
+    post_content: req.body.post_content,
     user_id: req.session.user_id,
     topic_id: req.body.topic_id
    
@@ -102,7 +105,7 @@ router.post('/', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
-      title: req.body.title,
+      post_title: req.body.post_title,
       post_content: req.body.post_content
     },
     {

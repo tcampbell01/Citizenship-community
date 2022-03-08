@@ -1,7 +1,7 @@
 {
   "name": "citizenship-community",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Wireframe",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -34,5 +34,6 @@
     "sequelize": "^6.17.0",
     "session": "^0.1.0",
     "socket.io": "^4.4.1"
-  }
+  },
+  "devDependencies": {}
 }
