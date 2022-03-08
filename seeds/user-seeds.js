@@ -2,39 +2,44 @@ const { User } = require('../models');
 
 const userData = [
   {
-      first_last_name: "Larry Brown",
+      first_name: "Larry",
+      last_name: "Brown",
       email: "larryxx@ymail.com",
       password: "amen2that",
-      isAdmin: "false",
-      zipCode: 06032
+      // isAdmin: "false",
+      zipCode: "06032"
   },
   {
-    first_last_name: "John Smith",
+    first_name: "John",
+    last_name: "Smith",
     email: "pattx@ymail.com",
     password: "prudent1",
-    isAdmin: "false",
-    zipCode: 06001 
+    // isAdmin: "false",
+    zipCode: "06001" 
   },
   {
-    first_last_name: "Erin Shields",
+    first_name: "Erin",
+    last_name: "Shields",
     email: "blue@ymail.com",
     password: "bluebird@1",
-    isAdmin: "true",
-    zipCode: 06114
+    // isAdmin: "true",
+    zipCode: "06114"
   },
   {
-    first_last_name: "Nancy Caddigan",
+    first_name: "Nancy",
+    last_name: "Caddigan",
     email: "yello@ymail.com",
     password: "marshmalloxx",
     isAdmin: "false",
-    zipCode: 55443
+    zipCode: "55443"
   },
   {
-    first_last_name: "Pat Campbell",
+    first_name: "Pat",
+    last_name: "Campbell",
     email: "savrx@ymail.com",
     password: "save_her",
-    isAdmin: "false",
-    zipCode: 33311
+    // isAdmin: "false",
+    zipCode: "33311"
   }
 ];
 

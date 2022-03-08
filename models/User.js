@@ -14,16 +14,21 @@ User.init({
     allowNull: false,
     primaryKey: true,
     autoIncrement: true,
-  // },
-  // first_last_name: {
-  //   type: DataTypes.STRING,
-  //   allowNull: false,
   },
-  first_last_name: {
+  first_name: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      isAlpha: true,
+      isAlpha: true,       // ISALPHA DOESNT ALLOW SPACE BETWEEN FIRST & LAST NAME- WE EITHER HAVE 2 SEPARATE BOXES IN SIGNUP BOX FOR NAME OR REMOVE VALIDATION
+      len: [2]             // we can add min length of 2 to prevent use of initials only
+    }
+  },
+  last_name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      isAlpha: true,       // ISALPHA DOESNT ALLOW SPACE BETWEEN FIRST & LAST NAME- WE EITHER HAVE 2 SEPARATE BOXES IN SIGNUP BOX FOR NAME OR REMOVE VALIDATION
+      len: [2]             // we can add min length of 2 to prevent use of initials only
     }
   },
   email: {
@@ -40,19 +45,20 @@ User.init({
     validate: {
       len: [4],
     },
-  },
-  isAdmin: {
-    type: DataTypes.BOOLEAN,
-    defaultValue: false,
-    validate: {
-      isAdmin: true,
-    },
+  // },
+  // isAdmin: {                // POSSIBLY NEED PASSPORT OR OTHER NPM PACKAGE FOR USER PERMISSIONs but we can collect data in interim
+  //   type: DataTypes.BOOLEAN,
+  //   defaultValue: false,
+  //   validate: {
+  //     isAdmin: true,
+  //   },
   },
   zipCode: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,  // ZIP HAS TO BE A STRING BECAUSE INTEGERS WILL NOT ALLOW LEADING 0-PROBLEM FOR CT ETC
     allowNull: false,
-    validate: {
-      len: [5]
+    validate: {             // validate here restricts zipcode entry to 5 numbers
+      len: [5],    
+      isNumeric: true        
     },
   }
 },

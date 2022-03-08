@@ -121,16 +121,19 @@ router.put("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
     User.create({
-      first_last_name: req.body.first_last_name,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
       email: req.body.email,
-      // password: req.body.password,
+      password: req.body.password,
       zipCode: req.body.zipCode,
     })
       .then((dbUserData) => {
         req.session.save(() => {
           req.session.user_id = dbUserData.id;
-          req.session.first_last_name = dbUserData.first_last_name;
+          req.session.first_name = dbUserData.first_name;
+          req.session.last_name = dbUserData.last_name;
           req.session.zipCode = dbUserData.zipCode;
+          req.session.password = dbUserData.password;
           req.session.loggedIn = true;
   
           res.json(dbUserData);
