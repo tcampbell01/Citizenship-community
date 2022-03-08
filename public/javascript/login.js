@@ -1,7 +1,7 @@
 async function signupFormHandler(event) {
   event.preventDefault();
 
-  const username = document.querySelector('#username-sign-up').value.trim();
+  const first_last_name = document.querySelector('#first_last_name-sign-up').value.trim();
   const email = document.querySelector('#email-sign-up').value.trim();
   const password = document.querySelector('#password-sign-up').value.trim();
 
@@ -13,7 +13,7 @@ async function signupFormHandler(event) {
       );
   };
 
-  if (username && email && password) {
+  if (first_last_name && email && password) {
     if (password.length < 4 || !validateEmail(email)) {
       alert("Email must be valid and password must be at least four characters long.");
       return;
@@ -21,7 +21,7 @@ async function signupFormHandler(event) {
       const response = await fetch('/api/users', {
         method: 'post',
         body: JSON.stringify({
-          username,
+          first_last_name,
           email,
           password
         }),

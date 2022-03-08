@@ -3,7 +3,7 @@
     <a href="/post/{{topic}}/{{id}}" target="_blank">{{title}}</a>
   </div>
   <div class="content">
-    Posted by {{user.username}} on {{format_date created_at}} | 
+    Posted by {{user.first_last_name}} on {{format_date created_at}} | 
     <a href="/post/{{topic}}/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
   </div>
 </article>

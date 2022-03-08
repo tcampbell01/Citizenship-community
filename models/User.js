@@ -14,10 +14,17 @@ User.init({
     allowNull: false,
     primaryKey: true,
     autoIncrement: true,
+  // },
+  // first_last_name: {
+  //   type: DataTypes.STRING,
+  //   allowNull: false,
   },
-  username: {
+  first_last_name: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      isAlpha: true,
+    }
   },
   email: {
     type: DataTypes.STRING,
@@ -41,6 +48,13 @@ User.init({
       isAdmin: true,
     },
   },
+  zipCode: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    validate: {
+      len: [5]
+    },
+  }
 },
 {
   hooks: {

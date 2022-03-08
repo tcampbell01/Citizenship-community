@@ -2,34 +2,39 @@ const { User } = require('../models');
 
 const userData = [
   {
-      username: "Larryx",
+      first_last_name: "Larry Brown",
       email: "larryxx@ymail.com",
       password: "amen2that",
-      isAdmin: "false"
+      isAdmin: "false",
+      zipCode: 06032
   },
   {
-    username: "Patronix",
+    first_last_name: "John Smith",
     email: "pattx@ymail.com",
     password: "prudent1",
-    isAdmin: "false" 
+    isAdmin: "false",
+    zipCode: 06001 
   },
   {
-    username: "Blue",
+    first_last_name: "Erin Shields",
     email: "blue@ymail.com",
     password: "bluebird@1",
-    isAdmin: "true"
+    isAdmin: "true",
+    zipCode: 06114
   },
   {
-    username: "Yellowbird",
+    first_last_name: "Nancy Caddigan",
     email: "yello@ymail.com",
     password: "marshmalloxx",
-    isAdmin: "false"
+    isAdmin: "false",
+    zipCode: 55443
   },
   {
-    username: "Savior",
+    first_last_name: "Pat Campbell",
     email: "savrx@ymail.com",
     password: "save_her",
-    isAdmin: "false"
+    isAdmin: "false",
+    zipCode: 33311
   }
 ];
 
