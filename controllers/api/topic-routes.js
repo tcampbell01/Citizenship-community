@@ -48,10 +48,12 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', withAuth, (req, res) => 
+
+{    
   
   Topic.create({
-    title: req.body.title
+    topic_title: req.body.topic_title
    
   })
     .then(dbTopicData => res.json(dbTopicData))
@@ -65,7 +67,7 @@ router.post('/', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
   Topic.update(
     {
-      title: req.body.title
+      topic_title: req.body.topic_title
       
     },
     {
