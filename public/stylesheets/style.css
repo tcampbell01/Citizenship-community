@@ -2,18 +2,44 @@
     pointer-events: none;
 }
 
-/* socket.io styles */
-
-.chat-body { 
-    margin: 0; 
-    padding-bottom: 3rem; 
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+.height {
+    height: 100vh;
 }
 
-.chat-form {
+.hght-100 {
+    height: 100%;
+}
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+}
+
+.sixty-pct {
+    display: flex;
+    flex-direction: column;
+    flex: 1 60%;
+}
+
+.forty-pct {
+    flex: 1 40%;
+}
+
+/* socket.io styles */
+
+.sixty-pct h3 {
+}
+
+.chat-body {
+    margin: 0; 
+    padding-bottom: 3rem; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.chat-body #form {
     background: rgba(0, 0, 0, 0.15);
     padding: 0.25rem;
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0; 
     right: 0; 
@@ -23,18 +49,19 @@
     backdrop-filter: blur(10px); 
 }
 
-.chat-input {
+.chat-body #input {
     border: none;
     padding: 0 1rem; 
     flex-grow: 1; 
     border-radius: 2rem; 
     margin: 0.25rem; 
 }
-.chat-input:focus { 
+
+.chat-body #input:focus { 
     outline: none; 
 }
 
-.chat-form > button { 
+.chat-body #form > button { 
     background: #333; 
     border: none; 
     padding: 0 1rem; 
@@ -44,14 +71,15 @@
     color: #fff; 
 }
 
-.messages-div { 
+.chat-body #messages {
+    height: 100%;
     list-style-type: none; margin: 0; padding: 0;
 }
 
-.messages-div > li {
+.chat-body #messages > li {
     padding: 0.5rem 1rem;
 }     
 
-.messages-div > li:nth-child(odd) {
+.chat-body #messages > li:nth-child(odd) {
     background: #efefef;
 }
