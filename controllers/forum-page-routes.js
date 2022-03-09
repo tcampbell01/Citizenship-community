@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
   //     console.log(err);
   //     res.status(500).json(err);
   //   });
-  res.render('forum-page');
+  res.render('forum-page', { username: req.session.username, zipcode: req.session.zipcode});
 });
 
 
