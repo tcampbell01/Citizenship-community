@@ -32,10 +32,14 @@
     font-size: 18px;
 }
 
+#legislators {
+    display: none;
+}
+
 /* socket.io styles */
 
 #username {
-  display: none;
+    display: none;
 }
 
 .chat-body {

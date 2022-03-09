@@ -3,7 +3,9 @@ var submitBtn =document.getElementById('.submit-btn')
 console.log("connect to html")
 function civicInfo() {
   const apiKey = "AIzaSyDE4huvmH6VOPODWGRYgvl_umZVcfWHB_s";
-  const userAddress = "06095";
+  var userAddress = document.getElementById('legislatorsVal');
+  userAddress = userAddress.innerHTML; 
+  // const userAddress = "06095";
   const civicContainer = document.getElementById('civic-rep');
 
   // fetch("https://civicinfo.googleapis.com/civicinfo/v2/representatives?address="+ userAddress + "&includeOffices=true&roles=headOfState&roles=headOfGovernment&roles=deputyHeadOfGovernment&roles=governmentOfficer&roles=executiveCouncil&roles=legislatorUpperBody&roles=legislatorLowerBody&key="+ apiKey)
