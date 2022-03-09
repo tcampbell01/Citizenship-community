@@ -4,7 +4,7 @@
     <p>{{post_content}}</p>
   </div>
   <div class="content">
-    Posted by {{user.first_name}} {{user.last_name}} on {{format_date created_at}} | 
+    Posted by {{user.first_name}} {{user.last_name}} on on {{format_date created_at}} | 
     <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
   </div>
 </article>
