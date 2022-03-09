@@ -39,7 +39,7 @@ Topic.belongsToMany(Post, {
     foreignKey: 'topic_id'
 });
 
-Post.belongsTo(Topic, {
+Post.belongsToMany(Topic, {
     through: TopicPost,
     foreignKey: 'post_id'
 });

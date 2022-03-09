@@ -9,8 +9,7 @@ router.get('/', (req, res) => {
    
     include: [
       {
-        model: Post,
-        attributes: ['id', 'title', 'post_content', 'user_id']
+        model: Post
       },
       
     ]
@@ -36,11 +35,12 @@ router.get('/:id', (req, res) => {
     ]
   })
     .then(dbTopicData => {
+      console.log(dbTopicData)
       if (!dbTopicData) {
         res.status(404).json({ message: 'No topic with this ID found' });
         return;
       }
-      res.json(dbTopicData);
+      res.render("topic", dbTopicData); // change to res.render { plain: true } 
     })
     .catch(err => {
       console.log(err);
@@ -48,12 +48,10 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => 
-
-{    
+router.post('/', withAuth, (req, res) => {
   
   Topic.create({
-    topic_title: req.body.topic_title
+    title: req.body.title
    
   })
     .then(dbTopicData => res.json(dbTopicData))
@@ -67,7 +65,7 @@ router.post('/', withAuth, (req, res) =>
 router.put('/:id', withAuth, (req, res) => {
   Topic.update(
     {
-      topic_title: req.body.topic_title
+      title: req.body.title
       
     },
     {
