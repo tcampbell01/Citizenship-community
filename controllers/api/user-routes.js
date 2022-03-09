@@ -73,12 +73,17 @@ router.post("/login", (req, res) => {
       }
 
       req.session.save(() => {
-      
+        // creating a username variable to shorten the chat name display
+        var username = dbUserData.first_name.charAt(0) + dbUserData.last_name; 
+        req.session.username = username;
         req.session.user_id = dbUserData.id;
         req.session.email = dbUserData.email;
+        // just a consideration i think typically you dont send the password into the session
+        // beause then its present in the cookies which is a security concern. not sure if the hash
+        // completely negates this or not they just said thats why they didnt include it 
         req.session.password = dbUserData.password;
+        req.session.zipcode = dbUserData.zipCode;
         req.session.loggedIn = true;
-
         res.json({ user: dbUserData, message: "You are now logged in!" });
       });
     })
