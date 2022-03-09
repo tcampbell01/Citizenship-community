@@ -1,25 +1,37 @@
 <section>
-  <!-- height, hght-100 classes - we might want to also include this /try it out in the signup page --> 
   <div class="container-fluid height">
     <div class="row hght-100">
-      <div class="col-2 border border-primary">
-        <h2>Topics</h2>  
-        <ol class="post-list">
-        {{#each topics as |topic|}}
-        <li>
-        {{ topic.topic_title }}
-        </li>
-        {{/each}}
-        </ol> 
+      <div class="col-2 bg-dark">
+        <div class="bg-dark text-white justify-content-center h5">
+          <a>Topics</a>
+        </div>
+        <div class="bd-dark text-light divider">
+          <ul>
+            <li><a href="/topic/1">Citizenship Test</a></li>
+            <li><a href="/topic/2">N-400</a></li>
+            <li><a href="/topic/3">The interview</a></li>
+            <li><a href="/topic/4">Traveling after sending in your N-400</a></li>
+            <li><a href="/topic/5">What is 'Good Moral Character'</a></li>
+          </ul>
+        </div>        
       </div>
-      <div class="col-6 border border-primary">
-        <h2>Forum</h2>
+      {{!-- Forum Section --}}
+      <div class="col-6 bg-primary text-white">
+        <h5>Forum</h5>
+        <div class="bg-light text-dark border border-light">
+          {{#each posts as |post|}}
+            <li>
+              {{> post-info post }} 
+            </li>
+          {{/each}}
+				</div>
       </div>
+      {{!-- Chat Section --}}
       <!-- right-side, sixty-pct, chat-body, forty-pct -->
-      <div class="col-4 border border-primary right-side">
-        <div class="row border border-primary sixty-pct">
-          <h3>Chat</h3>
-          <div class="col border border-primary chat-body">
+      <div class="col-4 border border-dark right-side">
+        <div class="row border border-5 border-dark sixty-pct">
+          <div class="bg-dark text-white h4">Live Chat</div>
+          <div class="col chat-body">
             <ul id="messages">
             </ul>    
             <form id="form" action="">      
@@ -28,20 +40,19 @@
             </form>
           </div>      
         </div>
-        <div class="row border border-primary forty-pct">
-          <div class="col border border-primary">
-            <h3>Representative</h3>
-            <div class="input-group mb-3 user-input">
-              <input type="text" class="form-control address-input" placeholder="Enter Your Zip Code" aria-label="Enter Your Zip Code" aria-describedby="button-addon2">
-              <button class="btn btn-outline-secondary submit-btn" type="button">Submit</button>
-            </div>
-            <div class ="flex-column civic-rep"></div>
-          </div>  
+        <div class="row border border-dark forty-pct">
+            <div class="col border border-5 border-dark">
+              <h5> Your Legislators </h5>
+              <div class ="flex-column" id="civic-rep">
+              </div>
+            </div> 
         </div>
       </div>
     </div>
   </div>
 </section>
+<script src="/javascript/civicinfo.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script> var socket = io();
 
@@ -62,13 +73,3 @@
     window.scrollTo(0, document.body.scrollHeight);
   });
 </script>
-<script src="/javascript/civicinfo.js"></script>
-
-{{!-- 
-<ol class="post-list">
-  {{#each posts as |post|}}
-  <li>
-    {{> post-info post }}
-  </li>
-  {{/each}}
-</ol> --}}

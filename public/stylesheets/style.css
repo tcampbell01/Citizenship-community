@@ -25,6 +25,13 @@
     flex: 1 40%;
 }
 
+/* forum styles */ 
+
+.welcome {
+    padding: 20px;
+    font-size: 18px;
+}
+
 /* socket.io styles */
 
 .sixty-pct h3 {

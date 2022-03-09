@@ -39,10 +39,10 @@ router.get('/:id', (req, res) => {
         res.status(404).json({ message: 'No topic with this ID found' });
         return;
       }
+      //const posts = dbTopicData.map(post => post.get({ plain: true }));
+      const posts = dbTopicData.get({ plain: true });
       const topics = dbTopicData.get({ plain: true });
-      console.log(topics);
-      res.render("topic", { topics }); 
-      
+      res.render("topic", { posts, topics }); 
     })
     .catch(err => {
       console.log(err);
@@ -51,7 +51,6 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-  
   Topic.create({
     title: req.body.title
    
@@ -62,7 +61,6 @@ router.post('/', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
 
 router.put('/:id', withAuth, (req, res) => {
   Topic.update(
@@ -90,7 +88,6 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 router.delete('/:id', withAuth, (req, res) => {
- 
   Topic.destroy({
     where: {
       id: req.params.id
