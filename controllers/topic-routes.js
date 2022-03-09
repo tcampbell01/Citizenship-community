@@ -34,6 +34,8 @@ router.get('/:id', (req, res) => {
         
     ]
   })
+
+  // We want to change this so that if you click on a topic with no comments, you are instructed to create one. 
     .then(dbTopicData => {
       if (!dbTopicData) {
         res.status(404).json({ message: 'No topic with this ID found' });
