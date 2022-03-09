@@ -34,7 +34,8 @@
 
 /* socket.io styles */
 
-.sixty-pct h3 {
+#username {
+  display: none;
 }
 
 .chat-body {

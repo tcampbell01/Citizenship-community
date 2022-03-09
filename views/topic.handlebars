@@ -29,6 +29,7 @@
       <div class="col-4 border border-dark right-side">
         <div class="row border border-5 border-dark sixty-pct">
           <div class="bg-dark text-white h4">Live Chat</div>
+          <div id="username"><p id="userval">{{username}}</p></div>
           <div class="col chat-body">
             <ul id="messages">
             </ul>    
@@ -57,10 +58,12 @@
   var messages = document.getElementById('messages');
   var form = document.getElementById('form');  
   var input = document.getElementById('input');
+  var username = document.getElementById('userval');
+  var username = username.innerHTML; 
   
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    if (input.value) { socket.emit('chat message', input.value); 
+    if (input.value) { socket.emit('chat message', username + ": " + input.value); 
       input.value = '';
     }
   });
