@@ -1,3 +1,5 @@
+
+
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Post, Topic, TopicPost} = require('../../models');
@@ -110,3 +112,4 @@ router.delete('/:id', withAuth, (req, res) => {
 });
 
 module.exports = router;
+

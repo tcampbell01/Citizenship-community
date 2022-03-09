@@ -8,6 +8,9 @@ const forumRoutes = require('./forum-page-routes.js');
 
 const dashboardRoutes =require('./dashboard-routes')
 
+const topicRoutes =require('./topic-routes')
+
+
 router.use('/', homeRoutes);
 
 router.use('/api', apiRoutes);
@@ -15,6 +18,8 @@ router.use('/api', apiRoutes);
 router.use('/forum', forumRoutes);
 
 router.use('/dashboard', dashboardRoutes);
+
+router.use('/topic', topicRoutes);
 
 router.use((req, res) => {
   res.status(404).end();
