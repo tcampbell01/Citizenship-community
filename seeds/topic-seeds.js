@@ -19,7 +19,7 @@ const topicData = [
   },
   {
     topic_title: "What is 'Good Moral Character'"
-   
+
   }
 ];
 
