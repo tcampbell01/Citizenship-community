@@ -39,8 +39,8 @@ router.get('/:id', (req, res) => {
         res.status(404).json({ message: 'No topic with this ID found' });
         return;
       }
-      //const posts = dbTopicData.map(post => post.get({ plain: true }));
-      const posts = dbTopicData.get({ plain: true });
+      const posts = dbTopicData.posts.map(post => post.get({ plain: true }));
+      // const posts = dbTopicData.get({ plain: true });
       const topics = dbTopicData.get({ plain: true });
       res.render("topic", { posts, topics }); 
     })
