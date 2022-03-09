@@ -4,7 +4,7 @@ const { Post, User, Comment, Topic, TopicPost } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
-router.get('/', (req, res) => {
+router.get('/post', (req, res) => {
   Post.findAll({
     attributes: [
       'id',
@@ -41,7 +41,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/post/:id', (req, res) => {
   Post.findOne({
     where: {
       id: req.params.id
@@ -77,7 +77,11 @@ router.get('/:id', (req, res) => {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
-      res.json(dbPostData);
+      // res.json(dbPostData);
+      const posts = dbPostData.posts.map(post => post.get({ plain: true }));
+      // const posts = dbTopicData.get({ plain: true });
+      const topics = dbPostData.get({ plain: true });
+      res.render("post", { posts, topics, first_name: req.session.first_name }); 
     })
     .catch(err => {
       console.log(err);
