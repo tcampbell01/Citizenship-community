@@ -1,9 +1,11 @@
 async function signupFormHandler(event) {
   event.preventDefault();
 
-  const first_last_name = document.querySelector('#first_last_name-sign-up').value.trim();
-  const email = document.querySelector('#email-sign-up').value.trim();
-  const password = document.querySelector('#password-sign-up').value.trim();
+  const first_name = document.querySelector('#inputFirst').value.trim();
+  const last_name = document.querySelector('#inputLast').value.trim();
+  const email = document.querySelector('#inputEmail').value.trim();
+  const password = document.querySelector('#inputPassword').value.trim();
+  const zipCode = document.querySelector('#inputZip').value.trim();
 
   const validateEmail = (email) => {
     return String(email)
@@ -13,7 +15,7 @@ async function signupFormHandler(event) {
       );
   };
 
-  if (first_last_name && email && password) {
+  if (first_name && last_name && email && password && zipCode) {
     if (password.length < 4 || !validateEmail(email)) {
       alert("Email must be valid and password must be at least four characters long.");
       return;
@@ -21,9 +23,11 @@ async function signupFormHandler(event) {
       const response = await fetch('/api/users', {
         method: 'post',
         body: JSON.stringify({
-          first_last_name,
+          first_name,
+          last_name,
           email,
-          password
+          password,
+          zipCode
         }),
         headers: { 'Content-Type': 'application/json' }
       });
@@ -57,7 +61,7 @@ async function loginFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/forum');
     } else {
       alert(response.statusText + " / Incorrect Login / User not registered.");
     }
