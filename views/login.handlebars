@@ -1,9 +1,10 @@
 <section>
   <div class="container-fluid">
     <div class="row">
-      <div class="col">
+      <div class="col-8">
         <h2>Description</h2>
-        <p> What is Lorem Ipsum? Lorem Ipsum is simply dummy text of
+        <p> 
+            What is Lorem Ipsum? Lorem Ipsum is simply dummy text of
             the printing and typesetting industry. Lorem Ipsum has been
             the industry's standard dummy text ever since the 1500s, when
             an unknown printer took a galley of type and scrambled it to
@@ -13,46 +14,52 @@
             sheets containing Lorem Ipsum passages, and more recently with desktop publishing
             software like Aldus PageMaker including versions of Lorem Ipsum.
         </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fringilla nisi sed interdum suscipit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam facilisis tortor nec consectetur elementum. Sed faucibus iaculis rutrum. Aliquam a velit id dui condimentum viverra pulvinar nec ex. Phasellus facilisis gravida nunc ac scelerisque. Donec elementum porta purus. Vivamus a vulputate dui. Nunc bibendum maximus porta. Pellentesque massa nulla, elementum eget velit id, rhoncus bibendum odio. Nulla porta sapien eu arcu bibendum, aliquam iaculis magna vehicula. Suspendisse urna justo, laoreet a dolor at, finibus mollis tellus. Nulla sed metus commodo turpis ultricies dictum ac eget nulla. Duis blandit, libero at euismod facilisis, ante neque volutpat justo, sed rhoncus lectus odio et orci. Suspendisse sed tortor sit amet quam tempus aliquam. Mauris eu risus sodales, vehicula elit et, fermentum erat.
+        </p>
       </div>
-      <div class="col">
+      <div class="col-4 border border-5 bg-dark">
         <form class="login-form">
-          <h3>Login here</h3>
+          <p class="text-center text-white h3">Log In here</p>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label for="exampleInputEmail1"></label>
             <input type="email" class="form-control" id="email-login" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label for="exampleInputPassword1"></label>
             <input type="password" class="form-control" id="password-login" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-primary">Log In</button>
+          </div>
         </form>
         <form class="sign-up-form">
           <!-- Sign up form -->
-          <h3> Sign up here </h3>
+          <p class="text-center text-white h3">Sign Up</p>
           <div class="form-group">
-            <label for="name1">First Name</label>
-            <input type="text" class="form-control" id="inputFirst" placeholder="Enter name">
+            <label for="name1"></label>
+            <input type="text" class="form-control" id="inputFirst" placeholder="Enter First Name">
           </div>
           <div class="form-group">
-            <label for="name2">Last Name</label>
-            <input type="text" class="form-control" id="inputLast" placeholder="Enter name">
+            <label for="name2"></label>
+            <input type="text" class="form-control" id="inputLast" placeholder="Enter Last Name">
           </div>
           <div class="form-group">
             {{!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
-            <label for="exampleInputEmail">Email address</label>
-            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+            <label for="exampleInputEmail"></label>
+            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter Email">
           </div>
           <div class="form-group">
-            <label for="examplePassword">Password</label>
-            <input type="text" class="form-control" id="inputPassword" aria-describedby="emailHelp" placeholder="Enter password">
+            <label for="examplePassword"></label>
+            <input type="text" class="form-control" id="inputPassword" aria-describedby="emailHelp" placeholder="Enter Password">
           </div>
           <div class="form-group">
-            <label for="exampleZip">Zip</label>
+            <label for="exampleZip"></label>
             <input type="text" class="form-control" id="inputZip" aria-describedby="emailHelp" placeholder="Enter zip">
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your information with anyone else.</small>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end"><button type="submit" class="btn btn-primary">Submit</button>
+          </div>
         </form>
       </div>
     </div>
