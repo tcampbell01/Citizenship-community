@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const sequelize = require('../../config/connection');
-const { Post, Topic, TopicPost} = require('../../models');
-const withAuth = require('../../utils/auth');
+const sequelize = require('../config/connection');
+const { Post, Topic, TopicPost} = require('../models');
+const withAuth = require('../utils/auth');
 
 // get all users
 router.get('/', (req, res) => {
@@ -35,12 +35,14 @@ router.get('/:id', (req, res) => {
     ]
   })
     .then(dbTopicData => {
-      console.log(dbTopicData)
       if (!dbTopicData) {
         res.status(404).json({ message: 'No topic with this ID found' });
         return;
       }
-      res.render("topic", dbTopicData); // change to res.render { plain: true } 
+      const topics = dbTopicData.get({ plain: true });
+      console.log(topics);
+      res.render("topic", { topics }); 
+      
     })
     .catch(err => {
       console.log(err);
