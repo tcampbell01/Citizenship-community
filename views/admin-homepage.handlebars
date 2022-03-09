@@ -1,44 +1,94 @@
-<main>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-2 border border-primary">
-        <h2>Topics</h2>
+<section>
+  <div class="container-fluid height">
+    <div class="row hght-100">
+      <div class="col-2 bg-dark">
+        <div class="bg-dark text-white justify-content-center h5">
+          <a>Topics</a>
+        </div>
+        <div class="bd-dark text-light divider">
           <ul>
             <li> topic 1 </li>
             <li> topic 2 </li>
-            <li> topic 1 </li>
-            <li> topic 1 </li>
-            <li> topic 1 </li>
+            <li> topic 3 </li>
+            <li> topic 4 </li>
+            <li> topic 5 </li>
           </ul>
+        </div>        
       </div>
-      <div class="col-6 border border-primary">
-        <h2>Forum</h2>
+      {{!-- Forum Section --}}
+      <div class="col-6 bg-primary text-white">
+        <h5>Forum</h5>
+        <div class="bg-light text-dark border border-light">
+				</div>
       </div>
-      <div class="col-4 border border-primary">
-        <div class="row border border-primary">
-          <div class="col border border-primary">
-            <h3>Chat</h3>
-              <p>lorem says</p>
-              <p>ipsum says</p>
+      {{!-- Chat Section --}}
+      <!-- right-side, sixty-pct, chat-body, forty-pct -->
+      <div class="col-4 border border-dark right-side">
+        <div class="row border border-5 border-dark sixty-pct">
+          <div class="bg-dark text-white h4">Live Chat</div>
+          <div class="col chat-body">
+            <ul id="messages">
+            </ul>    
+            <form id="form" action="">      
+              <input id="input" autocomplete="off" />
+              <button>Send</button>    
+            </form>
           </div>      
         </div>
-        <div class="row border border-primary">
-          <div class="col border border-primary">
-            <h3>Representative</h3>
-            <p>api search bar</p>
-          </div>  
+        <div class="row border border-dark forty-pct">
+            <div class="col border border-5 border-dark">
+              <h5> Your Legislators </h5>
+              <div class ="flex-column" id="civic-rep">
+              </div>
+            </div> 
         </div>
       </div>
     </div>
   </div>
-<!-- add users for admin page -->
   <section>
-    <div class="container-fluid border border-primary">
+    <div class="container-fluid border border-5 border-dark bg-primary">
       <div class="row">
-        <div class="col">
-          <h4>add users box goes here</h4>
+        <div class="col-2 container border">
+          <h6 class="text-white">Add Users</h6>
+        </div>
+        <div class="col-10 container hstack gap-3 border">
+          <div class="text-white">John Doe</div>
+          <div class="text-white">Johndoe@someeamil.com</div>
+          <div class="text-white">06003</div>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-2 container">
+        </div>
+        <div class="col-10 container hstack gap-3 border">
+          <div class="text-white">Jessica Doe</div>
+          <div class="text-white">Jessicadoe@someeamil.com</div>
+          <div class="text-white">06003</div>
         </div>
       </div>
     </div>
   </section>
-</main>
+</section>
+<script src="/javascript/civicinfo.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script> var socket = io();
+
+  var messages = document.getElementById('messages');
+  var form = document.getElementById('form');  
+  var input = document.getElementById('input');
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (input.value) { socket.emit('chat message', input.value); 
+      input.value = '';
+    }
+  });
+  socket.on('chat message', function(msg) {
+    var item = document.createElement('li');
+    item.textContent = msg;
+    messages.appendChild(item);
+    window.scrollTo(0, document.body.scrollHeight);
+  });
+</script>
+<script src="/javascript/civicinfo.js"></script>
