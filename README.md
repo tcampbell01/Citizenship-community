@@ -72,7 +72,8 @@
   joseph.campbell123@yahoo.com
 
   [https://github.com/Tresha-Gaye] (https://github.com/Tresha-Gaye)
-  
+  treshagaye@gmail.com
+
 
   [https://github.com/gregoryjohncarter] (https://github.com/gregoryjohncarter)
 
