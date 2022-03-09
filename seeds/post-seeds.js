@@ -2,7 +2,7 @@ const { Post } = require('../models');
 
 const postData = [
   {
-    title: "Links to US Citizenship test- 100 questions(2008", 
+    title: "Links to US Citizenship test- 100 questions(2008)", 
     post_content: "This is where I found the links to USCIS questions: https://www.uscis.gov/citizenship/civics-practice-test-2008", 
     user_id: 1,
     // topic_id: 1

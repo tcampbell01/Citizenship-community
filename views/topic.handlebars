@@ -20,9 +20,7 @@
         <h5>Forum</h5>
         <div class="bg-light text-dark border border-light">
           {{#each posts as |post|}}
-            <li>
-              {{> post-info post }} 
-            </li>
+            <ul>{{> post-info post }}</ul>
           {{/each}}
 				</div>
       </div>
