@@ -44,7 +44,7 @@ router.get('/:id', (req, res) => {
       const posts = dbTopicData.posts.map(post => post.get({ plain: true }));
       // const posts = dbTopicData.get({ plain: true });
       const topics = dbTopicData.get({ plain: true });
-      res.render("topic", { posts, topics, first_name: req.session.first_name }); 
+      res.render("topic", { posts, topics, username: req.session.username, zipcode: req.session.zipcode}); 
     })
     .catch(err => {
       console.log(err);
