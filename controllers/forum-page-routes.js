@@ -17,12 +17,11 @@ router.get("/", (req, res) => {
   //     console.log(err);
   //     res.status(500).json(err);
   //   });
-  res.render('forum-page', { username: req.session.username, zipcode: req.session.zipcode});
+  res.render('forum-page', { loggedIn: req.session.loggedIn, username: req.session.username, zipcode: req.session.zipcode});
 });
 
 
 router.get('/', withAuth, (req, res) => {
-  console.log(req.session);
  
   Post.findAll({
     where: {
@@ -35,12 +34,12 @@ router.get('/', withAuth, (req, res) => {
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
-          attributes: ['first_last_name']
+          attributes: ['first_name', 'last_name']
         }
       },
       {
         model: User,
-        attributes: ['first_last_name']
+        attributes: ['first_name', 'last_name']
       },
       {
         model: Topic,

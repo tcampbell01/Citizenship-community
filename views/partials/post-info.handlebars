@@ -1,12 +1,10 @@
 <article class="post">
   <div class="title">
-    <div class="h5">{{title}}</div>
+    <div class="h5"><a href="/api/posts/{{id}}">{{title}}</a></div>
     <p>{{post_content}}</p>
   </div>
   <div class="content">
-    {{id}}
-    
     Posted by {{user.first_name}} {{user.last_name}} on {{format_date created_at}} | 
-    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    <a href="/api/posts/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
   </div>
 </article>

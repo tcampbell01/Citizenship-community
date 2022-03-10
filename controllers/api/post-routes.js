@@ -41,7 +41,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
   Post.findOne({
     where: {
       id: req.params.id
@@ -78,10 +78,10 @@ router.get('/:id', (req, res) => {
         return;
       }
       // res.json(dbPostData);
-      const posts = dbPostData.posts.map(post => post.get({ plain: true }));
-      // const posts = dbTopicData.get({ plain: true });
-      const topics = dbPostData.get({ plain: true });
-      res.render("post", { posts, topics, first_name: req.session.first_name }); 
+      // const posts = dbPostData.posts.map(post => post.get({ plain: true }));
+      const posts = dbPostData.get({ plain: true });
+      // const topics = dbPostData.get({ plain: true });
+      res.render("post", { posts, loggedIn: req.session.loggedIn, username: req.session.username, zipcode: req.session.zipcode }); 
     })
     .catch(err => {
       console.log(err);
@@ -95,7 +95,6 @@ router.post('/', withAuth, (req, res) => {
     title: req.body.title,
     post_content: req.body.post_content,
     user_id: req.session.user_id,
-    topic_id: req.body.topic_id
    
   })
     .then(dbPostData => res.json(dbPostData))
@@ -105,11 +104,45 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
+router.post('/topic', withAuth, (req, res) => {
+
+  Post.findAll({
+    limit: 1,
+    order: [[ 'createdAt', 'DESC' ]]
+  }).then(entries => {
+    var postID = entries[0].id;
+
+    TopicPost.create({
+      post_id: JSON.stringify(postID),
+      topic_id: req.body.topic_id
+    })
+    .then(dbTopicPostData => res.json(dbTopicPostData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    })
+  })
+})
+
+
+// router.post('/', withAuth, (req, res) => {
+  
+//   TopicPost.create({
+//     post_id: req.
+//     topic_id: 
+   
+//   })
+//     .then(dbPostData => res.json(dbPostData))
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
-      post_title: req.body.post_title,
+      title: req.body.title,
       post_content: req.body.post_content
     },
     {

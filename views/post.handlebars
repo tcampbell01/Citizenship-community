@@ -1,3 +1,4 @@
+
 <section>
   <div class="container-fluid height">
     <div class="row hght-100">
@@ -17,47 +18,18 @@
       </div>
       {{!-- Forum Section --}}
       <div class="col-6 bg-primary border border-5 border-dark text-white">
-        <h5>Dashboard</h5>
+        <h5>Forum</h5>
         <div class="bg-light text-dark border rounded border-light">
-          <section>
-            <h3 class="new-post">Create New Post</h3>
-            <form class="new-post-form">
-              <div>
-                <h3>Title</h3>
-                <input type="text" id="post-title" name="post-title" />
-              </div>
-              <div>
-                <h3 class="pad-bot">Content</h3>
-                <textarea id="post-content"></textarea>
-              </div>
-              <button type="submit" class="">Create post</button>
-            </form>
-            <form class="new-topic-form">
-             <div>
-                <select id="topic">
-                  <option value="1">Citizenship Test</option>
-                  <option value="2">N-400</option>
-                  <option value="3">The interview</option>
-                  <option value="4">Traveling after sending in your N-400</option>
-                  <option value="5">What is 'Good Moral Character'</option>
-                </select>
-              </div>
-              <button type="submit" class="">Add post to forums</button>
-            </form>
-          </section>
-          {{#if posts.length}}
-          <section>
-            <h2>Your Posts</h2>
-            <ol>
-              {{#each posts as |post|}}
-              <li>
-                {{> post-info post}}
-                <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-              </li>
-              {{/each}}
-            </ol>
-          </section>
-          {{/if}}
+          {{> post-info posts}}
+          <form class="comment-form">
+            <div>
+              <textarea id="comment-body" name="comment-body" maxlength="400"></textarea>
+            </div>
+            <div>
+              <button type="submit">Add Comment</button>
+            </div>
+          </form>
+          {{> comments posts.comments}}
 				</div>
       </div>
       {{!-- Chat Section --}}
@@ -87,9 +59,9 @@
     </div>
   </div>
 </section>
-<script src="/javascript/add-post.js"></script>
 <script src="/javascript/civicinfo.js"></script>
 <script src="https://apis.google.com/js/api.js"></script>
+<script src="/javascript/comment.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script> var username = document.getElementById('userVal');
           var username = username.innerHTML; 

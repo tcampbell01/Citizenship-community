@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, Topic, TopicPost} = require('../models');
+const { User, Post, Topic, Comment, TopicPost} = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all users
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
   Topic.findOne({
     where: {
       id: req.params.id
@@ -29,7 +29,25 @@ router.get('/:id', (req, res) => {
     include: [
         {
           model: Post,
-          attributes: ['id', 'title', 'post_content', 'user_id']
+          attributes: ['id', 'title', 'post_content', 'user_id', 'created_at'],
+          include: [
+            {
+              model: Comment,
+              attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+              include: {
+                model: User,
+                attributes: ['first_name', 'last_name']
+              }
+            },
+            {
+              model: User,
+              attributes: ['first_name', 'last_name']
+            },
+            {
+              model: Topic,
+              attributes: ['id', 'topic_title']
+            }
+          ]
         },
         
     ]
@@ -43,8 +61,8 @@ router.get('/:id', (req, res) => {
       }
       const posts = dbTopicData.posts.map(post => post.get({ plain: true }));
       // const posts = dbTopicData.get({ plain: true });
-      const topics = dbTopicData.get({ plain: true });
-      res.render("topic", { posts, topics, username: req.session.username, zipcode: req.session.zipcode}); 
+      // const topics = dbTopicData.get({ plain: true });
+      res.render("topic", { posts, loggedIn: req.session.loggedIn, username: req.session.username, zipcode: req.session.zipcode}); 
     })
     .catch(err => {
       console.log(err);
