@@ -36,6 +36,21 @@
     display: none;
 }
 
+.flexible {
+    /* overflow: auto; */
+}
+
+.scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.scrollChat {
+    /* overflow-x: hidden;
+    overflow-y: auto; */
+}
+
 /* socket.io styles */
 
 #username {
