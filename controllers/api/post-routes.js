@@ -4,7 +4,7 @@ const { Post, User, Comment, Topic, TopicPost } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
-router.get('/post', (req, res) => {
+router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
       'id',
@@ -41,7 +41,7 @@ router.get('/post', (req, res) => {
     });
 });
 
-router.get('/post/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
       id: req.params.id
