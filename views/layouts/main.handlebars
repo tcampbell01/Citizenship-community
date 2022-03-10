@@ -26,6 +26,15 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="https://www.uscis.gov/DACA">DACA</a>
                 </li>
+                {{#if loggedIn}}
+                <li>
+                    <a class="nav-link text-white" href="/dashboard" class="activee">Dashboard</a>
+                </li>
+                {{else}}
+                <li>
+                    <a href="#" class="nav-link text-white disableClick">Dashboard</a>
+                </li>
+                {{/if}}
               </ul>
             </div>
         </nav>
@@ -37,13 +46,13 @@
     <div class="container-fluid bg-dark text-center text-white h6">
     <ul class="nav justify-content-center">
       <li class="nav-item">
-          <a class="nav-link text-white" href="#">Other Resources:</a>
+        <a class="nav-link text-white" href="#">Other Resources:</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" href="https://www.nypl.org/help/community-outreach/immigrant-services/citizenship" >New York Public Library Citizenship Resources and Programs</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link text-white" href="https://www.hplct.org/library-services/immigration-citizenship/citizenship">Immigration Services of the Hartford Public Library</a>
+        <a class="nav-link text-white" href="https://www.hplct.org/library-services/immigration-citizenship/citizenship">Immigration Services of the Hartford Public Library</a>
       </li>
       {{#if loggedIn}}
       <li class="nav-item d-grid gap-1 d-md-flex justify-content-md-end">

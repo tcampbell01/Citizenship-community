@@ -5,13 +5,17 @@ const withAuth = require('../utils/auth');
 
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
-  console.log(req.session);
  
   Post.findAll({
     where: {
       user_id: req.session.user_id
     },
-   
+    attributes: [
+      'id',
+      'title',
+      'post_content',
+      'created_at'
+    ],
     include: [
       {
         model: Comment,
@@ -33,7 +37,7 @@ router.get('/', withAuth, (req, res) => {
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
+      res.render('dashboard', { posts, loggedIn: true, username: req.session.username, zipcode: req.session.zipcode });
     })
     .catch(err => {
       console.log(err);
@@ -73,7 +77,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
         }
   
         const post = dbPostData.get({ plain: true });
-        res.render("edit-post", { post, loggedIn: true });
+        res.render("edit-post", { post, loggedIn: true, username: req.session.username, zipcode: req.session.zipcode });
       })
       .catch((err) => {
         console.log(err);

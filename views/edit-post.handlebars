@@ -1,29 +1,107 @@
-<article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>Edit Post</h2>
-  <form class="edit-post-form">
-    <div>
-      <input name="post-title" type="text" maxlength="155" value="{{post.title}}"/>
+<section>
+  <div class="container-fluid height">
+    <div class="row hght-100">
+      <div class="col-2 bg-dark">
+        <div class="bg-dark text-white justify-content-center h5">
+          <a class="nav-link text-white" href="/forum">Topics</a>
+        </div>
+        <div class="bd-dark text-light divider">
+          <ul>
+            <li><a class="text-white" href="/topic/1">Citizenship Test</a></li>
+            <li><a class="text-white" href="/topic/2">N-400</a></li>
+            <li><a class="text-white" href="/topic/3">The interview</a></li>
+            <li><a class="text-white" href="/topic/4">Traveling after sending in your N-400</a></li>
+            <li><a class="text-white" href="/topic/5">What is 'Good Moral Character'</a></li>
+          </ul>
+        </div>        
+      </div>
+      {{!-- Forum Section --}}
+      <div class="col-6 bg-primary border border-5 border-dark text-white">
+        <h5>Forum</h5>
+        <div class="bg-light text-dark border rounded border-light">
+          <article>
+            <a href="/dashboard"> &larr; Back to dashboard</a>
+            <h2>Edit Post</h2>
+            <form class="edit-post-form">
+              <div>
+                <input name="post-title" type="text" maxlength="155" value="{{post.title}}"/>
+              </div>
+              <div>
+                <textarea id="post-content" maxlength="1020">{{post.post_content}}</textarea>
+              </div>
+              <div> Posted by you on {{format_date post.created_at}} | 
+                <a href="/api/posts/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+              </div>
+              <button id="submit-content" type="submit">Save post</button>
+              <button type="button" class="delete-post-btn">Delete post</button>
+            </form>
+          </article>
+          <form class="comment-form">
+            <div>
+              <textarea name="comment-body" maxlength="400"></textarea>
+            </div>
+            <div>
+              <button type="submit">Add Comment</button>
+            </div>
+          </form>
+          {{> comments post.comments}}
+				</div>
+      </div>
+      {{!-- Chat Section --}}
+      <!-- right-side, sixty-pct, chat-body, forty-pct -->
+      <div class="col-4 border border-dark right-side">
+        <div class="row border border-5 border-dark sixty-pct">
+          <div class="bg-dark text-white h4">Live Chat</div>
+          <div id="username"><p id="userVal">{{username}}</p></div>
+          <div class="col chat-body">
+            <ul id="messages">
+            </ul>    
+            <form id="form" action="">      
+              <input id="input" autocomplete="off" />
+              <button>Send</button>    
+            </form>
+          </div>      
+        </div>
+        <div class="row border border-dark forty-pct">
+          <div class="col border border-5 border-dark">
+            <h5> Your Legislators </h5>
+            <div id="legislators"><p id="legislatorsVal">{{zipcode}}</p></div>
+            <div class ="flex-column" id="civic-rep">
+            </div>
+          </div> 
+        </div>
+      </div>
     </div>
-    <div>
-      <textarea id="post-content" maxlength="1020">{{post.content}}</textarea>
-    </div>
-    <div> Posted by you on {{format_date post.created_at}} | 
-      <a href="/posts/{{post.topic}}/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
-    </div>
-    <button id="submit-content" type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
-  </form>
-</article>
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body" maxlength="400"></textarea>
   </div>
-  <div>
-    <button type="submit">Add Comment</button>
-  </div>
-</form>
-{{> comments post.comments}}
+</section>
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
 <script src="/javascript/comment.js"></script>
+<script src="/javascript/civicinfo.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script> var username = document.getElementById('userVal');
+          var username = username.innerHTML; 
+          var socket = io.connect();
+          data = {name: username, userId: socket.id};
+          socket.emit('setSocketId', data);
+
+
+  var messages = document.getElementById('messages');
+  var form = document.getElementById('form');  
+  var input = document.getElementById('input');
+  
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (input.value) { socket.emit('chat message', username + ": " + input.value); 
+      input.value = '';
+    }
+  });
+  socket.on('chat message', function(msg) {
+    var item = document.createElement('li');
+    item.textContent = msg;
+    messages.appendChild(item);
+    window.scrollTo(0, document.body.scrollHeight);
+  });
+</script>

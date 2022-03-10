@@ -1,28 +1,118 @@
 <section>
-  <h3 class="new-post">Create New Post</h3>
-  <form class="new-post-form">
-    <div>
-      <h3>Title</h3>
-      <input type="text" id="post-title" name="post-title" />
+  <div class="container-fluid height">
+    <div class="row hght-100">
+      <div class="col-2 bg-dark">
+        <div class="bg-dark text-white justify-content-center h5">
+          <a class="nav-link text-white" href="/forum">Topics</a>
+        </div>
+        <div class="bd-dark text-light divider">
+          <ul>
+            <li><a class="text-white" href="/topic/1">Citizenship Test</a></li>
+            <li><a class="text-white" href="/topic/2">N-400</a></li>
+            <li><a class="text-white" href="/topic/3">The interview</a></li>
+            <li><a class="text-white" href="/topic/4">Traveling after sending in your N-400</a></li>
+            <li><a class="text-white" href="/topic/5">What is 'Good Moral Character'</a></li>
+          </ul>
+        </div>        
+      </div>
+      {{!-- Forum Section --}}
+      <div class="col-6 bg-primary border border-5 border-dark text-white">
+        <h5>Dashboard</h5>
+        <div class="bg-light text-dark border rounded border-light">
+          <section>
+            <h3 class="new-post">Create New Post</h3>
+            <form class="new-post-form">
+              <div>
+                <h3>Title</h3>
+                <input type="text" id="post-title" name="post-title" />
+              </div>
+              <div>
+                <h3 class="pad-bot">Content</h3>
+                <textarea id="post-content"></textarea>
+              </div>
+              <button type="submit" class="">Create post</button>
+            </form>
+            <form class="new-topic-form">
+             <div>
+                <select id="topic">
+                  <option value="1">Citizenship Test</option>
+                  <option value="2">N-400</option>
+                  <option value="3">The interview</option>
+                  <option value="4">Traveling after sending in your N-400</option>
+                  <option value="5">What is 'Good Moral Character'</option>
+                </select>
+              </div>
+              <button type="submit" class="">Add post to forums</button>
+            </form>
+          </section>
+          {{#if posts.length}}
+          <section>
+            <h2>Your Posts</h2>
+            <ol>
+              {{#each posts as |post|}}
+              <li>
+                {{> post-info post}}
+                <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+              </li>
+              {{/each}}
+            </ol>
+          </section>
+          {{/if}}
+				</div>
+      </div>
+      {{!-- Chat Section --}}
+      <!-- right-side, sixty-pct, chat-body, forty-pct -->
+      <div class="col-4 border border-dark right-side">
+        <div class="row border border-5 border-dark sixty-pct">
+          <div class="bg-dark text-white h4">Live Chat</div>
+          <div id="username"><p id="userVal">{{username}}</p></div>
+          <div class="col chat-body">
+            <ul id="messages">
+            </ul>    
+            <form id="form" action="">      
+              <input id="input" autocomplete="off" />
+              <button>Send</button>    
+            </form>
+          </div>      
+        </div>
+        <div class="row border border-dark forty-pct">
+            <div class="col border border-5 border-dark">
+              <h5> Your Legislators </h5>
+              <div id="legislators"><p id="legislatorsVal">{{zipcode}}</p></div>
+              <div class ="flex-column" id="civic-rep">
+              </div>
+            </div> 
+        </div>
+      </div>
     </div>
-    <div>
-      <h3 class="pad-bot">Content</h3>
-      <textarea id="post-content"></textarea>
-    </div>
-    <button type="submit" class="">Create</button>
-  </form>
+  </div>
 </section>
-{{#if posts.length}}
-<section>
-  <h2>Your Posts</h2>
-  <ol>
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.topic}}/{{post.id}}" class="edit-link">Edit post</a>
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}}
 <script src="/javascript/add-post.js"></script>
+<script src="/javascript/civicinfo.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script> var username = document.getElementById('userVal');
+          var username = username.innerHTML; 
+          var socket = io.connect();
+          data = {name: username, userId: socket.id};
+          socket.emit('setSocketId', data);
+
+
+  var messages = document.getElementById('messages');
+  var form = document.getElementById('form');  
+  var input = document.getElementById('input');
+  
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (input.value) { socket.emit('chat message', username + ": " + input.value); 
+      input.value = '';
+    }
+  });
+  socket.on('chat message', function(msg) {
+    var item = document.createElement('li');
+    item.textContent = msg;
+    messages.appendChild(item);
+    window.scrollTo(0, document.body.scrollHeight);
+  });
+</script>
