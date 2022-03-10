@@ -41,7 +41,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
   Post.findOne({
     where: {
       id: req.params.id
@@ -73,15 +73,16 @@ router.get('/:id', (req, res) => {
     ]
   })
     .then(dbPostData => {
+      console.log(dbPostData);
       if (!dbPostData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
       // res.json(dbPostData);
-      const posts = dbPostData.posts.map(post => post.get({ plain: true }));
-      // const posts = dbTopicData.get({ plain: true });
-      const topics = dbPostData.get({ plain: true });
-      res.render("post", { posts, topics, first_name: req.session.first_name }); 
+      // const posts = dbPostData.posts.map(post => post.get({ plain: true }));
+      const posts = dbPostData.get({ plain: true });
+      // const topics = dbPostData.get({ plain: true });
+      res.render("post", { posts, loggedIn: req.session.loggedIn, username: req.session.username, zipcode: req.session.zipcode }); 
     })
     .catch(err => {
       console.log(err);

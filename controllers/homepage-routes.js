@@ -7,14 +7,14 @@ router.get('/', (req, res) => {
       res.redirect('/login');
       return;
   }
-  res.render('forum');
+  res.render('forum-page', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/login', (req, res) => {
-  // if (req.session.loggedIn) {
-  //     res.redirect('/');
-  //     return;
-  // }
+  if (req.session.loggedIn) {
+      res.redirect('/forum');
+      return;
+  }
   res.render('login');
 });
 
