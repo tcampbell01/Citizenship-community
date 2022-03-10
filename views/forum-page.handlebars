@@ -39,13 +39,12 @@
 				</div>
       </div>
       {{!-- Chat Section --}}
-      <!-- right-side, sixty-pct, chat-body, forty-pct -->
       <div class="col-4 border border-dark right-side">
         <div class="row border border-5 border-dark sixty-pct">
           <div class="bg-dark text-white h4">Live Chat</div>
           <div id="username"><p id="userVal">{{username}}</p></div>
           <div class="col chat-body">
-            <ul id="messages">
+            <ul class="overflow" id="messages">
             </ul>    
             <form id="form" action="">      
               <input id="input" autocomplete="off" />
@@ -74,7 +73,7 @@
           data = {name: username, userId: socket.id};
           socket.emit('setSocketId', data);
 
-
+  
   var messages = document.getElementById('messages');
   var form = document.getElementById('form');  
   var input = document.getElementById('input');
