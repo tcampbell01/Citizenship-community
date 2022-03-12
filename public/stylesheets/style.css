@@ -2,6 +2,65 @@
     pointer-events: none;
 }
 
+p, .word-overflow, .text {
+    word-break: break-word;
+}
+
+.coloring {
+    background-color: #485461;
+    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+}
+
+ /* button 51 https://getcssscan.com/css-buttons-examples */
+  .button1 {
+    background-color: transparent;
+    border: 1px solid #266DB6;
+    box-sizing: border-box;
+    color: #00132C;
+    font-family: "Avenir Next LT W01 Bold",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px;
+    padding: 12px 18px;
+    position: relative;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button1:hover,
+  .button1:active {
+    outline: 0;
+  }
+  
+  .button1:hover {
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .button1:before {
+    background-color: #D5EDF6;
+    content: "";
+    height: calc(100% + 3px);
+    position: absolute;
+    right: -7px;
+    top: -9px;
+    transition: background-color 300ms ease-in;
+    width: 100%;
+    z-index: -1;
+  }
+  
+  .button1:hover:before {
+    background-color: #6DCFF6;
+  }
+  
+  @media (min-width: 768px) {
+    .button1 {
+      padding: 16px 32px;
+    }
+  }
+
 .height {
     height: 100vh;
 }
@@ -27,6 +86,31 @@
 
 /* forum styles */ 
 
+.edit-dashboard {
+    padding-bottom: 12px;
+}
+
+.comment-form {
+    padding-bottom: 12px;
+}
+
+.single-post-comment {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.padding-top {
+    padding-top: 12px;
+}
+
+.padding-left {
+    padding-left: 12px;
+}
+
+.padding-right {
+    padding-right: 12px;
+}
+
 .welcome {
     padding: 20px;
     font-size: 18px;
@@ -40,10 +124,95 @@
     /* overflow: auto; */
 }
 
+h5, .h5ita {
+    font-style: italic;
+}
+
+h2 {
+    padding-right: 12px;
+    padding-left: 12px;
+    padding-bottom: 0px;
+    text-decoration: underline;
+}
+
 .scroll {
     overflow-x: hidden;
     overflow-y: auto;
     height: 100vh;
+}
+
+#post-title {
+    width: 75%;
+}
+
+.new-post {
+    padding: 12px;
+    padding-bottom: 0px;
+    text-decoration: underline;
+}
+
+.padding {
+    margin: 15px;
+}
+
+#post-content {
+    width: 75%;
+    height: 18rem;
+    resize: none;
+}
+
+.dashboard-padding {
+    padding-bottom: 12px;
+}
+
+.grey {
+    color: darkblue;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+a, .blue {
+    color: darkblue;
+    font-size: 16px;
+    text-decoration-color: rgb(97, 97, 97);
+}
+
+.edit-form-tag {
+    padding-bottom: 12px;
+}
+
+.edit-panel {
+    padding-bottom: 12px;
+}
+
+.topic {
+    padding-bottom: 12px;
+}
+
+.content {
+    padding-bottom: 8px;
+}
+
+.comment-padding {
+    padding-bottom: 12px;
+    padding-left: 12px;
+}
+
+.padding-left-btn {
+    padding-left: 12px;
+}
+
+.comment-body {
+    width: 75%;
+}
+
+.padding-bottom {
+    padding-bottom: 12px;
+}
+
+.comment {
+    padding-bottom: 12px;
+    padding-left: 12px;
 }
 
 /* socket.io styles */

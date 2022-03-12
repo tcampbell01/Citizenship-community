@@ -3,7 +3,7 @@
     <div class="row hght-100">
       <div class="col-2 bg-dark">
         <div class="bg-dark text-white justify-content-center h5">
-          <a class="nav-link text-white" href="/forum">Topics</a>
+          <a class="nav-link text-white h5ita" href="/forum">Topics</a>
         </div>
         <div class="bd-dark text-light divider">
           <ul>
@@ -21,20 +21,18 @@
         <div class="bg-light text-dark border rounded border-light">
           <section>
             <h3 class="new-post">Create New Post</h3>
-            <form class="new-post-form">
+            <form class="new-post-form padding">
               <div>
                 <h3>Title</h3>
-                <input type="text" id="post-title" name="post-title" />
+                <input type="text" id="post-title" name="post-title" maxlength="155"/>
               </div>
-              <div>
+              <div class="content">
                 <h3 class="pad-bot">Content</h3>
-                <textarea id="post-content"></textarea>
+                <textarea id="post-content" maxlength="620"></textarea>
               </div>
-              <button type="submit" class="">Create post</button>
-            </form>
-            <form class="new-topic-form">
-             <div>
+              <div class="topic">
                 <select id="topic">
+                  <option disabled selected value> -- select an option -- </option>
                   <option value="1">Citizenship Test</option>
                   <option value="2">N-400</option>
                   <option value="3">The interview</option>
@@ -42,15 +40,18 @@
                   <option value="5">What is 'Good Moral Character'</option>
                 </select>
               </div>
-              <button type="submit" class="">Add post to forums</button>
+              <button type="submit" class="button1">Add post to forums</button>
             </form>
+            {{!-- <form class="new-topic-form">
+              <button type="submit" class="">Add post to forums</button>
+            </form> --}}
           </section>
           {{#if posts.length}}
-          <section>
+          <section class="padding-right">
             <h2>Your Posts</h2>
             <ol>
               {{#each posts as |post|}}
-              <li>
+              <li class="dashboard-padding">
                 {{> post-info post}}
                 <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
               </li>
@@ -69,8 +70,8 @@
             <ul class="overflow" id="messages">
             </ul>    
             <form id="form" action="">      
-              <input id="input" autocomplete="off" />
-              <button>Send</button>    
+              <input id="input" autocomplete="off" maxlength="200"/>
+              <button class="button">Send</button>    
             </form>
           </div>      
         </div>

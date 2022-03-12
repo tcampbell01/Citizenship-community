@@ -3,7 +3,7 @@
     <div class="row hght-100">
       <div class="col-2 bg-dark">
         <div class="bg-dark text-white justify-content-center h5">
-          <a class="nav-link text-white" href="/forum">Topics</a>
+          <a class="nav-link text-white h5ita" href="/forum">Topics</a>
         </div>
         <div class="bd-dark text-light divider">
           <ul>
@@ -19,29 +19,31 @@
       <div class="col-6 bg-primary border border-5 border-dark text-white scroll">
         <h5>Forum</h5>
         <div class="bg-light text-dark border rounded border-light">
-          <article>
+          <article class="edit-dashboard">
             <a href="/dashboard"> &larr; Back to dashboard</a>
             <h2>Edit Post</h2>
-            <form class="edit-post-form">
+            <form class="edit-post-form new-post-form padding">
               <div>
-                <input name="post-title" type="text" maxlength="155" value="{{post.title}}"/>
+                <h3>Title</h3>
+                <input name="post-title" id="post-title" type="text" maxlength="155" value="{{post.title}}"/>
               </div>
-              <div>
-                <textarea id="post-content" maxlength="1020">{{post.post_content}}</textarea>
+              <div class="edit-panel">
+                <h3 class="pad-bot">Content</h3>
+                <textarea id="post-content" maxlength="620">{{post.post_content}}</textarea>
               </div>
-              <div> Posted by you on {{format_date post.created_at}} | 
+              <div class="edit-form-tag"> Posted by you on {{format_date post.created_at}} | 
                 <a href="/api/posts/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
               </div>
-              <button id="submit-content" type="submit">Save post</button>
-              <button type="button" class="delete-post-btn">Delete post</button>
+              <button id="submit-content" class="button1" type="submit">Save post</button>
+              <button type="button" class="delete-post-btn button1">Delete post</button>
             </form>
           </article>
           <form class="comment-form">
-            <div>
-              <textarea name="comment-body" maxlength="400"></textarea>
+            <div class="comment-padding">
+              <textarea name="comment-body" class="comment-body" maxlength="200"></textarea>
             </div>
-            <div>
-              <button type="submit">Add Comment</button>
+            <div class="padding-bottom padding-left-btn">
+              <button type="submit" class="button1">Add Comment</button>
             </div>
           </form>
           {{> comments post.comments}}
@@ -57,7 +59,7 @@
             <ul class="overflow" id="messages">
             </ul>    
             <form id="form" action="">      
-              <input id="input" autocomplete="off" />
+              <input id="input" autocomplete="off" maxlength="200"/>
               <button>Send</button>    
             </form>
           </div>      
