@@ -4,7 +4,7 @@ const { User, Post, Topic, Comment, TopicPost} = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all users
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
   Topic.findAll({
    
     include: [

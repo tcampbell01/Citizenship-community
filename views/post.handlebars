@@ -1,10 +1,9 @@
-
 <section>
   <div class="container-fluid height">
     <div class="row hght-100">
       <div class="col-2 bg-dark">
         <div class="bg-dark text-white justify-content-center h5">
-          <a class="nav-link text-white" href="/forum">Topics</a>
+          <a class="nav-link text-white h5ita" href="/forum">Topics</a>
         </div>
         <div class="bd-dark text-light divider">
           <ul>
@@ -19,14 +18,14 @@
       {{!-- Forum Section --}}
       <div class="col-6 bg-primary border border-5 border-dark text-white scroll">
         <h5>Forum</h5>
-        <div class="bg-light text-dark border rounded border-light">
+        <div class="bg-light text-dark border rounded border-light padding-top padding-left">
           {{> post-info posts}}
           <form class="comment-form">
-            <div>
-              <textarea id="comment-body" name="comment-body" maxlength="400"></textarea>
+            <div class="content">
+              <textarea id="comment-body" class="comment-body single-post-comment" name="comment-body" maxlength="200"></textarea>
             </div>
             <div>
-              <button type="submit">Add Comment</button>
+              <button type="submit" class="button1">Add Comment</button>
             </div>
           </form>
           {{> comments posts.comments}}
@@ -41,7 +40,7 @@
             <ul class="overflow" id="messages">
             </ul>    
             <form id="form" action="">      
-              <input id="input" autocomplete="off" />
+              <input id="input" autocomplete="off" maxlength="200"/>
               <button>Send</button>    
             </form>
           </div>      
