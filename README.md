@@ -80,3 +80,8 @@ Email: treshagaye@gmail.com
 
 GitHub: [gregoryjohncarter](https://github.com/gregoryjohncarter)
 Email: gregoryjohncarter@gmail.com
+![citizenship page 1](https://user-images.githubusercontent.com/93332105/158078465-770bc05d-796f-4d07-8bda-7d66036d4de8.jpg)
+![citizenship page 2](https://user-images.githubusercontent.com/93332105/158078469-86cf03ea-7a11-4267-92e0-a96d85987a90.jpg)
+![citizizenship forum](https://user-images.githubusercontent.com/93332105/158078473-957d5b07-f2c6-4d1b-b7ce-07d9d7d7f209.jpg)
+![citizenship dashboard](https://user-images.githubusercontent.com/93332105/158078477-cb054ef5-d6bf-4e54-88a9-ba1122d2c87e.jpg)
+![citizenship google api](https://user-images.githubusercontent.com/93332105/158078480-7c220f6e-6e58-44a0-a0d7-61540e6c6931.jpg)
