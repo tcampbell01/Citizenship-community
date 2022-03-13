@@ -4,77 +4,79 @@
 
 ![CC Wireframe](https://user-images.githubusercontent.com/92699311/156602270-f477df13-8c46-4d99-88b0-d3fda7d9bff2.png)
 
- ## Badges
+## Badges
 
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-  ## Table of Contents
+## Table of Contents
 
-  * [License](#license)
+- [License](#license)
 
-  * [Description](#description)
+- [Description](#description)
 
-  * [Installation](#installation)
+- [Installation](#installation)
 
-  * [Usage](#usage)
+- [Usage](#usage)
 
-  * [How to Contribute](#how-to-contribute)
+- [How to Contribute](#how-to-contribute)
 
-  * [Tests](#tests)
+- [Tests](#tests)
 
-  * [Questions?](#questions)
+- [Questions?](#questions)
 
-  ## License
-  Find out more about MIT by clicking here:
-  (https://opensource.org/licenses/MIT)
+## License
 
-  ## Description
+Find out more about MIT by clicking here:
+(https://opensource.org/licenses/MIT)
 
- This app is a community page for adults working towards United States citizenship.  It includes a topics page as well as a forum page with comments and the ability to comment to other users.  It also contains a chat function using socket.io and uses a civics api to display legislators by zip code. 
+## Description
 
-  ## Installation
+This app is a community page for adults working towards United States citizenship. It includes a topics page as well as a forum page with comments and the ability to comment to other users. It also contains a chat function using socket.io and uses a civics api to display legislators by zip code.
 
- This app requires the following installation: 
- - node 
- - bcrypt
- - connect-session-sequelize
- - dotenv
- - express
- - express-handlebars
- - express-session
- - google-auth-library
- - googleapis
- - mysql2
- - sequelize
- - session
- - socket.io
- - google civics api 
-   
-  ## Usage
+## Installation
 
- This app is intended as a community for adults seeking United States citizenship
+This app requires the following installation:
 
-  ## How to Contribute
-  
-  If you would like to contribute, please contact one of us below. 
-  [Contributor Covenant](https://www.contributor-covenant.org/)
+- node
+- bcrypt
+- connect-session-sequelize
+- dotenv
+- express
+- express-handlebars
+- express-session
+- google-auth-library
+- googleapis
+- mysql2
+- sequelize
+- session
+- socket.io
+- google civics api
 
-  ## Tests
-  No testing necessary
+## Usage
 
-  ## Questions?
+This app is intended as a community for adults seeking United States citizenship
 
-  ### Reach us here: 
-  [https://github.com/tcampbell01] (https://github.com/tcampbell01)  
-  teresa.j.campbell@icloud.com
+## How to Contribute
 
-  [https://github.com/JMCampbell2021] (https://github.com/JMCampbell2021)
-  joseph.campbell123@yahoo.com
+If you would like to contribute, please contact one of us below.
+[Contributor Covenant](https://www.contributor-covenant.org/)
 
-  [https://github.com/Tresha-Gaye] (https://github.com/Tresha-Gaye)
-  treshagaye@gmail.com
+## Tests
 
+No testing necessary
 
-  [https://github.com/gregoryjohncarter] (https://github.com/gregoryjohncarter)
-  gregoryjohncarter@gmail.com
+## Questions?
 
+### Reach us here:
+
+GitHub:[tcampbell01](https://github.com/tcampbell01)
+Email: teresa.j.campbell@icloud.com
+
+GitHub:[JMCampbell2021](https://github.com/JMCampbell2021)
+Email: joseph.campbell123@yahoo.com
+
+GitHub:[Tresha-Gaye](https://github.com/Tresha-Gaye)
+Email: treshagaye@gmail.com
+
+GitHub: [gregoryjohncarter](https://github.com/gregoryjohncarter)
+Email: gregoryjohncarter@gmail.com
